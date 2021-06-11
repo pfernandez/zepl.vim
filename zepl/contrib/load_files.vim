@@ -4,11 +4,17 @@
 " Legal:        No rights reserved.  Public domain.
 
 function! zepl#contrib#load_files#load(...) abort
-    let fns = (a:0 > 0 ? a:000 : [expand('%')])
-    let fns = map(copy(fns), 'fnamemodify(expand(v:val), ":p")')
-    " let fns = filter(uniq(copy(fns)), 'filereadable(v:val)')
-    let cmds = map(copy(fns), 'printf(b:repl_config["load_file"], v:val)')
-    call zepl#send(cmds)
+    " The dictionary entry identifying the command to laod a file
+    let load_cmd = zepl#config('load_file', '')
+    if empty(load_cmd)
+      echoerr "Could not load file(s) into REPL.  No value for 'load_file' set in Zepl configuration.  See ':help zepl-load_files' for more details."
+    else
+      let fns = (a:0 > 0 ? a:000 : [expand('%')])
+      let fns = map(copy(fns), 'fnamemodify(expand(v:val), ":p")')
+      " let fns = filter(uniq(copy(fns)), 'filereadable(v:val)')
+      let cmds = map(copy(fns), 'printf(load_cmd, v:val)')
+      call zepl#send(cmds)
+    endif
 endfunction
 
 command! -nargs=* -complete=file -bar ReplLoadFile :call zepl#contrib#load_files#load(<f-args>)

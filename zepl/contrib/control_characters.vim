@@ -1,4 +1,4 @@
-" Description:  Send control characters to the REPL and easily focus it.
+" Description:  Send characters to the REPL and easily focus it.
 " File:         zepl/contrib/control_characters.vim
 " Help:         :help zepl-control_characters
 " Legal:        No rights reserved.  Public domain.
@@ -9,19 +9,21 @@ function! s:jump_also_to_tab() abort
   call zepl#jump()
   let &switchbuf=swb
 endfunction
-
-command! -nargs=0 ReplSendNewline call zepl#send("\u0d", 1)
-command! -nargs=0 ReplSendCtrlC call zepl#send("\u03", 1)
-command! -nargs=0 ReplSendCtrlD call zepl#send("\u04", 1)
 command! -nargs=0 ReplFocus call s:jump_also_to_tab()
-nnoremap <silent> <Plug>ReplSendNewline :<C-u>ReplSendNewline<CR>
-nnoremap <silent> <Plug>ReplSendCtrlC :<C-u>ReplSendCtrlC<CR>
-nnoremap <silent> <Plug>ReplSendCtrlD :<C-u>ReplSendCtrlD<CR>
 nnoremap <silent> <Plug>ReplFocus :<C-u>ReplFocus<CR>
 
+function! s:send_key() abort
+  " Get a single key
+  let key = getchar()
+  " If the key wasn't escape, send it to the REPL
+  if key !=# 27
+    call zepl#send(nr2char(key), 1)
+  endif
+endfunction
+command! -nargs=0 ReplSendKey call s:send_key()
+nnoremap <silent> <Plug>ReplSendKey :<C-u>ReplSendKey<CR>
+
 if get(g:, 'zepl_default_maps', 1)
-  nmap <silent> gz<CR> <Plug>ReplSendNewline
-  nmap <silent> gzc <Plug>ReplSendCtrlC
-  nmap <silent> gzq <Plug>ReplSendCtrlD
+  nmap <silent> gzc <Plug>ReplSendKey
   nmap <silent> gz<TAB> <Plug>ReplFocus
 endif
