@@ -76,7 +76,7 @@ Add the following code snippet to your |vimrc| to enable this extension.
 <
 By using the `load_file` key in 'b:repl_config' or 'g:repl_config', you can
 specify a command for zepl to insert the file name into, and then send to the
-REPL. The command uses `%s` in place of the file name (see: |printf()|).
+REPL.  The command uses `%s` in place of the file name (see: |printf()|).
 
 Examples:
 >
