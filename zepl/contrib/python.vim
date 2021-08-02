@@ -3,22 +3,22 @@
 " Help:         :help zepl-python
 " Legal:        No rights reserved.  Public domain.
 
-function! zepl#contrib#python#formatter(text)
+function! zepl#contrib#python#formatter(lines)
     " Remove empty lines.
-    let text = filter(a:text, {_, val -> val !~# '\m\C^[ \t\n\r\e\b]*$'})
+    let lines = filter(a:lines, {_, val -> val !~# '\m\C^[ \t\n\r\e\b]*$'})
 
-    if !empty(text)
+    if !empty(lines)
         " Use common indentation.
-        let depth = len(matchstr(text[0], '\m\C^\s*'))
-        let text = map(text, 'v:val[' . depth . ':]')
+        let depth = len(matchstr(lines[0], '\m\C^\s*'))
+        let lines = map(lines, 'v:val[' . depth . ':]')
 
         " Add empty line to end of multi-line code (replaced by <CR> later on).
-        if len(text) > 1
-            let text = add(text, '')
+        if len(lines) > 1
+            let lines = add(lines, '')
         endif
     endif
 
-    return join(text, "\<CR>") . "\<CR>"
+    return join(lines, "\<CR>") . "\<CR>"
 endfunction
 
 " EXAMPLE: Configure zepl.vim to use the Python formatter in Python buffers.

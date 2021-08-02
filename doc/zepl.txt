@@ -451,11 +451,11 @@ The function should return a string, of all the lines joined by newline
 characters and a final newline added to the end.  This can be done by either
 calling the default formatter:
 >
-    return zepl#generic_formatter(text)
+    return zepl#generic_formatter(lines)
 <
 or by joining the lines (and adding the final newline) manually:
 >
-    return join(text, "\<CR>") . "\<CR>"
+    return join(lines, "\<CR>") . "\<CR>"
 <
 A more complete and complex example formatter can be found in the `python.vim`
 contrib file.

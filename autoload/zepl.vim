@@ -88,8 +88,8 @@ function! zepl#config(option, default)
         \      a:option, a:default)
 endfunction
 
-function! zepl#generic_formatter(text)
-    return trim(join(a:text, "\<CR>")) . "\<CR>"
+function! zepl#generic_formatter(lines)
+    return trim(join(a:lines, "\<CR>")) . "\<CR>"
 endfunction
 
 " zepl#send({text} [, {verbatim}])
