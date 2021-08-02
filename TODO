@@ -1,9 +1,29 @@
-- Maybe make the bufnr publicly accessible (but locked).
-- Add multiple REPL support.
-  - Vim prompt asking which REPL to use.
-  - Set 'cmd' to a list of strings, or set 'cmd' to a Vim function.
-    - The function can then do the prompting and ask for additional info.
-  - In contrib?
-- Set custom buffer name.
-- Extract output from terminal buffer.  `:h term_scrape()`
-- Add GIF to README.
+* Configurability
+
+  - Maybe make the bufnr publicly accessible (but locked).
+  - Add multiple REPL support.
+    - Vim prompt asking which REPL to use.
+    - Set 'cmd' to a list of strings, or set 'cmd' to a Vim function.
+      - The function can then do the prompting and ask for additional info.
+    - In contrib?
+  - Set custom buffer name.
+
+
+* New functionality
+
+  - Extract output from terminal buffer.  `:h term_scrape()`
+
+
+* Documentation
+
+  - Add GIF to README.
+
+
+* Usability
+
+  - Contrib modules with better defaults for specific languages.
+    - Python, F#, Clojure, etc.
+    - E.g. runtime! zepl/contrib/fsharp_defaults.vim
+      - Auto-enable and configure load-files, cmd and formatter.
+      - Bind 'keywordprg' to a useful value.
+      - Helper commands and functions.
