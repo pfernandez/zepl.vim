@@ -114,12 +114,12 @@ command for buffers of that filetype.
 
 ```vim
 let g:repl_config = {
-            \   'javascript': { 'cmd': 'node' }
+            \   'javascript': { 'cmd': 'node' },
             \   'clojure': {
             \     'cmd': 'clj'
             \   },
-            \   'scheme': 'rlwrap csi',
-            \   'julia': 'julia'
+            \   'scheme': { 'cmd': 'rlwrap csi' },
+            \   'julia':  { 'cmd': 'julia' }
             \ }
 ```
 

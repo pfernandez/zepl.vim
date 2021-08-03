@@ -109,12 +109,12 @@ The main configuration option is the `'cmd'` key which sets a default REPL
 command for buffers of that filetype.
 >
     let g:repl_config = {
-                \   'javascript': { 'cmd': 'node' }
+                \   'javascript': { 'cmd': 'node' },
                 \   'clojure': {
                 \     'cmd': 'clj'
                 \   },
-                \   'scheme': 'rlwrap csi',
-                \   'julia': 'julia'
+                \   'scheme': { 'cmd': 'rlwrap csi' },
+                \   'julia':  { 'cmd': 'julia' }
                 \ }
 <
 (When a default REPL has been specified, you only need to run |:Repl| to start
