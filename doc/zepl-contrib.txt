@@ -71,9 +71,10 @@ Copy/adapt the code below to your |vimrc| to add improved F# support.
 
 Extra features for Zepl.
 
-    * Load files  |zepl-load_files|
-    * Send control characters  |zepl-control_characters|
-    * Neovim autoscroll hack  |zepl-nvim_autoscroll_hack|
+    * Load files                    |zepl-load_files|
+    * Send control characters       |zepl-control_characters|
+    * Send delimited block to REPL  |zepl-blocks|
+    * Neovim autoscroll hack        |zepl-nvim_autoscroll_hack|
 
 ------------------------------------------------------------------------------
                                           *zepl-load_files*  *:ReplLoadFile*  *gz.*
@@ -154,6 +155,50 @@ Note: You will likely want to disable zepl.vim's default key bindings before
 setting your own.  This can be done using 'g:zepl_default_maps'.
 
 See also: |g:zepl_default_maps|.
+
+------------------------------------------------------------------------------
+                                           *zepl-blocks*  *ReplSendBlock*  *gz<CR>*
+                                   *'g:zepl_block_delims'*  *<Plug>ReplSendBlock*
+
+This contrib module adds the ability to send a code block marked by delimiters
+to a the REPL.
+
+Enable the contrib module with:
+>
+    runtime zepl/contrib/blocks.vim
+<
+Once enabled you need to configure the delimiters that mark a code block.
+This is done by setting the 'block_delims' key in the 'b:repl_config'
+dictionary (or 'g:repl_config') to a list containing |pattern|s for the start
+and end delimiters respectively.
+
+For example:
+>
+    let g:repl_config = {
+            \   'javascript': {
+            \     'cmd': 'node',
+            \     'block_delims': ['#\s*start block\n', '#\s*end block\n']
+            \   }
+            \ }
+
+This example configuration contains delimiters for JavaScript files that will
+match the following:
+>
+    # start block
+    function foo(bar) {
+        console.log('Hello, ' + bar + '!');
+    }
+    # end block
+<
+The |ReplSendBlock| command will send the code block under the cursor to the
+REPL.  By default this command is bound to `gz<CR>` (where <CR> is the
+enter/return key).
+
+(This mapping can be disabled with 'g:zepl_default_maps' and rebound with the
+*<Plug>ReplSendBlock* plug.)
+
+This contrib module will also check the 'g:zepl_block_delims' variable for
+delimiters so that you can set global delimiters.
 
 ------------------------------------------------------------------------------
                                                     *zepl-nvim_autoscroll_hack*
