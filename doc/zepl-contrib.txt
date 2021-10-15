@@ -195,7 +195,7 @@ REPL.  By default this command is bound to `gz<CR>` (where <CR> is the
 enter/return key).
 
 (This mapping can be disabled with 'g:zepl_default_maps' and rebound with the
-*<Plug>ReplSendBlock* plug.)
+|<Plug>ReplSendBlock| plug.)
 
 This contrib module will also check the 'g:zepl_block_delims' variable for
 delimiters so that you can set global delimiters.
