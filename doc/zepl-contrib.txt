@@ -177,7 +177,7 @@ For example:
     let g:repl_config = {
             \   'javascript': {
             \     'cmd': 'node',
-            \     'block_delims': ['#\s*start block\n', '#\s*end block\n']
+            \     'block_delims': ['^\s*#\s*start block\s*\zs$', '^\ze\s*#\s*end block\s*$']
             \   }
             \ }
 

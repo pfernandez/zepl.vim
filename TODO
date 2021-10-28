@@ -7,6 +7,7 @@
       - The function can then do the prompting and ask for additional info.
     - In contrib?
   - Set custom buffer name.
+  - Typing speed controls (e.g. for use over serial connections with picocom).
 
 
 * New functionality
