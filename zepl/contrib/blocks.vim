@@ -28,7 +28,7 @@ function! zepl#contrib#blocks#send_block() abort
             let endpos = searchpos(end_delim, 'cbnW')
         endif
 
-        if endpos[0] == startpos[0] && startpos[1] > endpos[1]
+        if (!endpos[0] || !startpos[0]) || (endpos[0] == startpos[0] && startpos[1] > endpos[1])
             echohl WarningMsg
             echo 'No block found under cursor'
             echohl NONE
