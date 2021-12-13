@@ -210,7 +210,7 @@ Examples:
                                                                   *zepl#jump()*
 
 The `zepl#jump()` function will "jump" to the running REPL by opening it in a
-|window| (if not already open), and then focusing that window.
+|window| (if not already open) and moving the cursor to that window.
 >
     call zepl#jump([mods], [size])
 <

@@ -1,18 +1,19 @@
 * Configurability
 
+  - Option to prevent cursor moving when sending a code block?
   - Maybe make the bufnr publicly accessible (but locked).
-  - Add multiple REPL support.
-    - Vim prompt asking which REPL to use.
-    - Set 'cmd' to a list of strings, or set 'cmd' to a Vim function.
-      - The function can then do the prompting and ask for additional info.
-    - In contrib?
-  - Set custom buffer name.
+    - Return from zepl#start() and zepl#jump() ?
   - Typing speed controls (e.g. for use over serial connections with picocom).
 
 
 * New functionality
 
   - Extract output from terminal buffer.  `:h term_scrape()`
+  - Multiple REPL support.
+    - Vim prompt asking which REPL to use.
+    - Set 'cmd' to a list of strings, or set 'cmd' to a Vim function.
+      - The function can then do the prompting and ask for additional info.
+    - In contrib?
 
 
 * Documentation
