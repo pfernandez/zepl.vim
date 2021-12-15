@@ -39,6 +39,7 @@ function! zepl#start(cmd, ...) abort
                         \ 'term_name': name,
                         \ 'term_finish': 'close',
                         \ 'close_cb': function('<SID>repl_closed'),
+                        \ 'norestore': 1,
                         \ 'hidden': 1
                         \ })
         endif
