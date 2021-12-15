@@ -316,10 +316,10 @@ Examples:
     call zepl#send("Hello, world!", 1)
 
     " Send the end-of-file control character (typically closes the REPL).
-    call zepl#send('<C-d>', 1)
+    call zepl#send("\<C-d>", 1)
 
     " Create a command to clear the REPL screen.
-    command! -bar -nargs=0 ReplClear :call zepl#send('<C-l>', 1)
+    command! -bar -nargs=0 ReplClear :call zepl#send("\<C-l>", 1)
     :ReplClear
 <
 ..............................................................................
