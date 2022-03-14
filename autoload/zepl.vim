@@ -62,8 +62,10 @@ function! zepl#jump(...) abort
     let mods = get(a:, 1, '')
     let size = get(a:, 2, 0)
 
+    let expanded_mods = split(expand(mods, 0, 0), '\s\+')
+
     " Open REPL in background buffer.
-    if count(expand(mods, 0, 1), 'hide')
+    if count(expanded_mods, 'hide')
         return
     endif
 
