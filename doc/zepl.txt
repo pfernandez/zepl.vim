@@ -142,13 +142,15 @@ it will "jump" to the running REPL.  The command follows this format:
 >
     :[mods] [size] Repl [command]
 <
-`[mods]` (optional) is any number of |:command-modifiers|.  (E.g. |:vertical|
-will open the REPL in a vertical split, and |:hide| will start the REPL in the
-background.)  `[mods]` will be ignored if a REPL window is already open.
+`[mods]` (optional) is any number and combination of |:command-modifiers|, some
+examples of mods are:
 
-The |:keepalt| mod will open the repl but keep focus on the current window
-focused. The repl will be visible but not active so you can send commands and
-see them evaluate.
+    * |:vertical| will open the REPL in a vertical split,
+    * |:hide| will start the REPL in the background,
+    * |:keep| will keep the cursor in the current buffer,
+    * |:tab| will open the REPL window in a new tab.
+
+`[mods]` will be ignored if a REPL window is already visible.
 
 `[size]` (optional) is used to set the height of the REPL window.  (If `[mods]`
 contains |:vertical| this will set the width of the REPL window.)  `[size]` will
@@ -490,6 +492,15 @@ Examples:
 <
 ==============================================================================
  4. CHANGE LOG                                                 *zepl-changelog*
+
+v1.5 [2022-03-24]~
+
+  * Added |:keep| mod to |:Repl| to keep the current buffer focused.
+  * Fixed bug with multiple |<mods>| on |:Repl| not working as expected.
+  * Disabled restoration of REPL buffers so Zepl works better with |:mksession|.
+  * Added |zepl-blocks| contrib extension for sending pre-defined regions to
+    the REPL.
+  * Documentation updates and fixes.
 
 v1.4 [2021-08-02]~
 

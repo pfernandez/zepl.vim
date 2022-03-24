@@ -3,6 +3,7 @@
   - Maybe make the bufnr publicly accessible (but locked).
     - Return from zepl#start() and zepl#jump() ?
   - Typing speed controls (e.g. for use over serial connections with picocom).
+    - line_delay, char_delay
 
 
 * New functionality
