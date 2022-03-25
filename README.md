@@ -1,12 +1,43 @@
 # Zepl.vim
 
-*Lightweight and easy REPL integration for Vim and Neovim.*
+*Simple and minimal REPL integration plugin for Vim and Neovim.*
 
 Zepl is a lightweight, simple and easy to use REPL integration package for Vim
 8.1+ and Neovim.  It provides a small set of key bindings and commands to start
 and interact with a running REPL.
 
 <!-- TODO: GIF and/or images -->
+
+
+## Why use Zepl?
+
+Simplicity is at the core of Zepl.  It is carefully designed around the
+following goals:
+
+1. Integrate with and feel like a part of Vim.
+2. Be highly extensible and customisable.
+3. Do only what is required.
+
+While it certainly is [not perfect][zepl2], I believe Zepl achieves these goals.
+
+[zepl2]: https://github.com/axvr/codedump/tree/master/2021/zepl2.vim
+
+- Zepl is one of the smallest, simplest and most stable REPL plugins available.
+- Its [`gz` operator](#sending-text-to-the-repl) and commands behave like
+  built-in ones.
+- It is very configurable and extensible and works with any REPL.
+- In-depth documentation covers everything you ever need to know.
+- Features that don't align with the goals are included as
+  [optional extensions](#additional-functionality).
+
+Zepl has had quite a few glowing reviews, but my favourite is
+[this one](https://old.reddit.com/r/vim/comments/o4mss8/how_to_run_julia_repl_in_neovim/h2q1nlp/):
+
+> I have just tried your plugin and I just can't stop appreciating it! Its [sic]
+> just the prefect [sic] solution to my problem.
+>
+> It is brilliant, intuitive and is very natural to vim. I am amazed at this
+> beautiful tool.
 
 
 ## Installation
