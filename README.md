@@ -59,7 +59,8 @@ Before installing Zepl, you should be aware of the 2 known limitations.
 
 - Only 1 REPL can be open at a time (per Vim instance).
 - [`set hidden`](https://vimhelp.org/options.txt.html#%27hidden%27) is required
-  for Neovim and will be automatically set.
+  for Neovim and will be automatically set.  It is optional for Vim, but
+  recommended if you want to hide running REPLs.
 
 
 ## Quick start

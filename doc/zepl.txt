@@ -37,7 +37,8 @@ start and interact with a running REPL.
 Please be aware of the 2 known limitations of Zepl:
 
   * Only 1 REPL can be open at a time (per Vim instance).
-  * 'hidden' is required for Neovim and will be automatically set.
+  * 'hidden' is required for Neovim and will be automatically set.  It is
+    optional for Vim, but recommended if you want to hide running REPLs.
 
 ==============================================================================
  2. QUICK START                                               *zepl-quickstart*
