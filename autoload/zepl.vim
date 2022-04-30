@@ -18,7 +18,7 @@ function! zepl#start(cmd, ...) abort
         return
 
     elseif !s:repl_bufnr
-        let cmd = (empty(a:cmd) ? zepl#config('cmd', '') : a:cmd)
+        let cmd = trim((empty(a:cmd) ? zepl#config('cmd', '') : a:cmd))
 
         if empty(cmd)
             call s:error('No command specified')
@@ -43,6 +43,8 @@ function! zepl#start(cmd, ...) abort
                         \ 'hidden': 1
                         \ })
         endif
+
+        call setbufvar(s:repl_bufnr, 'zepl_cmd', cmd)
     endif
 
     call zepl#jump(get(a:, 1, ''), get(a:, 2, 0))
@@ -130,7 +132,8 @@ function! zepl#send(text, ...) abort
 
     if has('nvim')
         call chansend(getbufvar(s:repl_bufnr, '&channel'), text)
-    else
+    elseif zepl#config('rlwrap', getbufvar(s:repl_bufnr, 'zepl_cmd') =~# '^rlwrap\s')
+        " rlwrap artefacting work-around.
         let text = split(text, '\m\C[\r\n]\+\zs', 1)
 
         for line in text
@@ -146,6 +149,9 @@ function! zepl#send(text, ...) abort
             endfor
             call term_wait(s:repl_bufnr)
         endfor
+    else
+        call term_sendkeys(s:repl_bufnr, text)
+        call term_wait(s:repl_bufnr)
     endif
 endfunction
 
