@@ -66,6 +66,18 @@ Copy/adapt the code below to your |vimrc| to add improved F# support.
                 \   'formatter': function('zepl#contrib#fsharp#formatter')
                 \ }
 <
+------------------------------------------------------------------------------
+                                                                 *zepl-clojure*
+
+Copy/adapt the code below to your |vimrc| to add improved Clojure support.
+>
+    runtime zepl/contrib/clojure.vim
+
+    autocmd! FileType clojure let b:repl_config = {
+                \   'cmd': filereadable('deps.edn') ? 'clj' : 'lein repl',
+                \   'formatter': function('zepl#contrib#clojure#formatter')
+                \ }
+<
 ==============================================================================
  3. EXTRA FEATURES                                        *zepl-extra-features*
 
