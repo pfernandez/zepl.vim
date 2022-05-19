@@ -52,7 +52,7 @@ function zepl#contrib#clojure#formatter(lines)
    let lines = s:normalizeIndents(lines)
    let lines = map(lines, function("s:processLine"))
 
-   return join(lines, "\n") . "\n"
+   return join(lines, "\<CR>") . "\<CR>"
 endfunction
 
 " EXAMPLE: Configure zepl.vim to use the Clojure formatter in Clojure buffers.
