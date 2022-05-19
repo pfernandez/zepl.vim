@@ -35,7 +35,7 @@ endfunction
 
 function s:processLine(...) abort
    " Remove trailing newlines.
-   let line = trim(a:2, "\r\n", 2)
+   let line = trim(a:2, "\r\n\<CR>", 2)
 
    " Remove two leading spaces added by the Clojure repl.
    return substitute(line, '\m^\s\s', '', '')
